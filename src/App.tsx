@@ -61,16 +61,6 @@ const PlanCard = ({ title, price, subtitle, features, highlight = false, badge =
   );
 };
 
-const Logo = ({ className = "" }: { className?: string }) => (
-  <div className={`flex flex-col items-center justify-center ${className}`}>
-    <img 
-      src="https://ais-dev-ak4yuzd5y7tctqlv6sdeng-481392219049.us-east1.run.app/logo.png" 
-      alt="Pulso Fitness Community Logo" 
-      className="w-48 h-auto"
-      referrerPolicy="no-referrer"
-    />
-  </div>
-);
 
 export default function App() {
   const [showFAB, setShowFAB] = useState(false);
@@ -137,9 +127,6 @@ export default function App() {
       {/* Navigation */}
       <nav className="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-md border-b border-zinc-900">
         <div className="max-w-7xl mx-auto px-6 h-24 flex items-center justify-center relative">
-          {/* Centered Logo */}
-          <Logo className="scale-90 md:scale-100" />
-          
           {/* Desktop Links (Absolute positioned to keep logo centered) */}
           <div className="hidden lg:flex absolute left-6 items-center gap-8 text-[10px] font-bold text-zinc-500 uppercase tracking-[0.2em]">
             <a href="#planes" className="hover:text-gold-400 transition-colors">Planes</a>
@@ -339,8 +326,6 @@ export default function App() {
       {/* Footer */}
       <footer className="py-12 px-6 border-t border-zinc-900">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
-          <Logo gold={false} className="scale-75 opacity-50" />
-          
           <div className="text-zinc-500 text-xs uppercase tracking-widest">
             © 2024 Pulso Fitness Community. Todos los derechos reservados.
           </div>
