@@ -62,6 +62,17 @@ const PlanCard = ({ title, price, subtitle, features, highlight = false, badge =
 };
 
 
+const Logo = ({ className = "" }: { className?: string }) => (
+  <div className={`flex flex-col items-center justify-center ${className}`}>
+    <img 
+      src="https://images.unsplash.com/vector-1775184860602-28d61a8e1686?q=80&w=1267&auto=format&fit=crop" 
+      alt="Pulso Fitness Community Logo" 
+      className="w-48 h-auto"
+      referrerPolicy="no-referrer"
+    />
+  </div>
+);
+
 export default function App() {
   const [showFAB, setShowFAB] = useState(false);
 
@@ -127,6 +138,9 @@ export default function App() {
       {/* Navigation */}
       <nav className="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-md border-b border-zinc-900">
         <div className="max-w-7xl mx-auto px-6 h-24 flex items-center justify-center relative">
+          {/* Centered Logo */}
+          <Logo className="scale-90 md:scale-100" />
+          
           {/* Desktop Links (Absolute positioned to keep logo centered) */}
           <div className="hidden lg:flex absolute left-6 items-center gap-8 text-[10px] font-bold text-zinc-500 uppercase tracking-[0.2em]">
             <a href="#planes" className="hover:text-gold-400 transition-colors">Planes</a>
@@ -258,6 +272,57 @@ export default function App() {
         </div>
       </section>
 
+      {/* Instagram Gallery Section */}
+      <section id="galeria" className="py-32 px-6 bg-black">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+            <div>
+              <h2 className="text-4xl md:text-5xl font-heading font-bold mb-4">SÍGUENOS EN <span className="gold-text">INSTAGRAM</span></h2>
+              <p className="text-zinc-400">Únete a nuestra comunidad y mira lo que sucede cada día en Pulso.</p>
+            </div>
+            <a 
+              href="https://instagram.com/pulsofitnesscommunity" 
+              target="_blank"
+              className="flex items-center gap-2 text-gold-400 font-bold hover:text-gold-300 transition-colors group"
+            >
+              @pulsofitnesscommunity <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </a>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {[
+              "https://images.unsplash.com/photo-1540497077202-7c8a3999166f?auto=format&fit=crop&q=80&w=600",
+              "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&q=80&w=600",
+              "https://images.unsplash.com/photo-1571731956672-f2b94d7dd0cb?auto=format&fit=crop&q=80&w=600",
+              "https://images.unsplash.com/photo-1593079831268-3381b0db4a77?auto=format&fit=crop&q=80&w=600",
+              "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=600",
+              "https://images.unsplash.com/photo-1574680096145-d05b474e2155?auto=format&fit=crop&q=80&w=600",
+              "https://images.unsplash.com/photo-1594381898411-846e7d193883?auto=format&fit=crop&q=80&w=600",
+              "https://images.unsplash.com/photo-1581009146145-b5ef03a74e7f?auto=format&fit=crop&q=80&w=600"
+            ].map((img, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.05 }}
+                className="aspect-square rounded-xl overflow-hidden border border-zinc-800 group relative"
+              >
+                <img 
+                  src={img} 
+                  alt={`Instagram post ${i + 1}`} 
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 opacity-70 group-hover:opacity-100"
+                  referrerPolicy="no-referrer"
+                />
+                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                  <Instagram className="w-8 h-8 text-white" />
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Contact Section */}
       <section id="contacto" className="py-32 px-6 bg-zinc-950">
         <div className="max-w-7xl mx-auto">
@@ -326,8 +391,10 @@ export default function App() {
       {/* Footer */}
       <footer className="py-12 px-6 border-t border-zinc-900">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+          <Logo className="scale-75 opacity-50" />
+          
           <div className="text-zinc-500 text-xs uppercase tracking-widest">
-            © 2024 Pulso Fitness Community. Todos los derechos reservados.
+            © 2026 Pulso Fitness Community. Todos los derechos reservados.
           </div>
 
           <div className="flex items-center gap-6">
